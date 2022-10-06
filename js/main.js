@@ -14,24 +14,28 @@ if(isNaN(age)){
 
 let preDiscountPrice = kilometersToTravel*0.21
 
-let finalPrice;
+let price;
 let minorDiscountRate = 20
 let seniorDiscountRate = 40
 
 let discount;
 
+let display = document.getElementById("display")
+
 if(age <=18){
     discount = ((preDiscountPrice /100) *minorDiscountRate)
-    finalPrice = preDiscountPrice - discount
+    price = preDiscountPrice - discount
 } else if(age >= 65){
     discount = ((preDiscountPrice /100) *seniorDiscountRate)
-    finalPrice = preDiscountPrice - discount
+    price = preDiscountPrice - discount
 } else {
-    finalPrice = preDiscountPrice
+    price = preDiscountPrice
 }
 
-if(isNaN(finalPrice)){
+if(isNaN(price)){
     alert("Please refresh the page inserting the correct values")
 }
 
-console.log(finalPrice)
+    finalPrice = price.toFixed(2)
+
+display.innerHTML = finalPrice
